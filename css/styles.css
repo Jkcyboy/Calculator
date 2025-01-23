@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Gloria Hallelujah", cursive;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff5e9e, #ffb100, #60d394, #a0e0ff, #ff5e9e);
+    background-size: 300% 300%;
+    animation: gradientAnimation 10s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.calculator form input {
+    border: 0;
+    outline: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.2);
+    background: transparent; /* Default button background */
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+/* Specific styles for operator and equal buttons */
+form input.operator, 
+form input.equal {
+    background: #ff59ac; /* Solid pink background for operator and equal buttons */
+    color: rgb(255, 255, 255); /* White text color for operator and equal buttons */
+}
+
+form input.equal {
+    width: 145px; /* Width for equal button */
+}
+
+/* Specific styles for the number buttons */
+form input[type="button"]:not(.operator):not(.equal) {
+    color: white; /* Text color for number buttons */
+}
+
+/* Specific styles for the top row and right column */
+form input:nth-child(1), /* AC */
+form input:nth-child(2), /* DE */
+form input:nth-child(3), /* . */
+form input:nth-child(4), /* / */
+form input:nth-child(7), /* * */
+form input:nth-child(11) { /* + */
+    color: pink; /* Text color for operators */
+}
